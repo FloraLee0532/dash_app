@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import datetime 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,8 +37,63 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'rest_framework',
+     'users'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication'  # 使用rest_framework_simplejwt验证身份
+
+    ],
+    #权限验证
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'    # 默认权限为验证用户
+    ],
+}
+CORS_ORIGIN_ALLOW_ALL = True # 跨域问题
+
+CORS_ALLOW_CREDENTIALS = True # 允许携带cookie
+CORS_ORIGIN_WHITELIST = (
+'http://127.0.0.1:8000',
+'http://api.gitee.com:8000',
+'http://192.168.2.8:89',
+)
+
+CORS_ALLOW_METHODS = (
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+'VIEW',
+)
+CORS_ALLOW_HEADERS = [
+'*',
+'dnt',
+'source',
+'origin',
+'Pragma',
+'accept',
+'user-agent',
+'x-csrftoken',
+'X_FILENAME',
+'content-type',
+'authorization',
+'authentication',
+'XMLHttpRequest',
+'accept-encoding',
+"x-requested-with",
+]
+
+# simplejwt配置， 需要导入datetime模块
+SIMPLE_JWT = {
+    # token有效时长
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=5),
+    # token刷新后的有效时间
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=5),
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

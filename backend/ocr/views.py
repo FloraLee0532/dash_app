@@ -13,6 +13,7 @@ def test(request):
     return HttpResponse("hello world")
 def get_high_frequenct_assay(request):
     argv = request.GET.get('argv','-1')
+    file_name = 'high_frequenct_assay.csv'
     file_path = os.path.join(settings.BASE_DIR,'ocr','data',file_name)
     argv = str(argv)
     return JsonResponse(get_all_color(argv))
