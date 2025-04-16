@@ -9,10 +9,6 @@ const routes = [{
     path:'/',
     component:Index
 },{
-    path: '/dashboard',
-    name: 'dashboard', // 必须与 NavItem 中的 route 属性匹配
-    component: About
-  },{
     path:'/about',
     component:About
 },,{

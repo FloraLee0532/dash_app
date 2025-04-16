@@ -1,35 +1,18 @@
-<template>
-  <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
-    <div class="flex">
-      <!-- SideNav -->
-      <transition
-        enter-active-class="transition-all duration-200 ease-soft-in-out"
-        leave-active-class="transition-all duration-200 ease-soft-in-out"
-        enter-from-class="-translate-x-full"
-        enter-to-class="translate-x-0"
-        leave-from-class="translate-x-0"
-        leave-to-class="-translate-x-full"
-      >
-        <SideNav 
-          v-if="store.showSideNav" 
-          class="flex-shrink-0 fixed h-full w-68.5" 
-        />
-      </transition>
 
-      <!-- Main content -->
-      <main 
-        class="relative h-full max-h-screen rounded-xl transition-all duration-200 ease-soft-in-out w-full"
-        :class="{
-          'xl:ml-68.5': store.showSideNav,
-          'xl:ml-0': !store.showSideNav
-        }"
-      >
-        <Navbar />
-        <router-view></router-view>
-      </main>
-    </div>
+
+​<template>
+  <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
+    <SideNav  v-if="store.showSideNav"/>
+    
+    <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+      <Navbar />
+      <router-view></router-view>
+    </main>
+    
   </body>
+    
 </template>
+
 <script setup >
 import Navbar from "@/layout/nav.vue";
 import SideNav from "@/layout/sidenav.vue";
