@@ -2011,7 +2011,6 @@ h6 {
   --tw-gradient-to: rgb(245 57 57 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-
 .from-red-600 {
   --tw-gradient-from: #ea0606;
   --tw-gradient-to: rgb(234 6 6 / 0);
@@ -2039,15 +2038,33 @@ h6 {
   --tw-gradient-to: rgb(255 255 255 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to);
 }
+.from-emerald-500 {
+  --tw-gradient-from: #2dce89;
+  --tw-gradient-to: rgb(45 206 137 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-blue-500 {
+  --tw-gradient-from: #5e72e4;
+  --tw-gradient-to: rgb(94 114 228 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 
 .to-transparent {
   --tw-gradient-to: transparent;
+}
+
+.to-violet-500 {
+  --tw-gradient-to: #825ee4;
 }
 
 .to-pink-500 {
   --tw-gradient-to: #ff0080;
 }
 
+.to-teal-400 {
+  --tw-gradient-to: #2dcecc;
+}
 .to-slate-300 {
   --tw-gradient-to: #a8b8d8;
 }
